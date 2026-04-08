@@ -32,7 +32,7 @@
       },
       "source": {
         "source": "url",
-        "url": "https://github.com/jhu900202/harnish.git",
+        "url": "https://github.com/jhu900202/harnish-jhu900202.git",
         "ref": "main"
       },
       "category": "development"
