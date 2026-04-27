@@ -23,16 +23,31 @@
       "category": "development"
     },
     {
-      "name": "harnish-jhu900202",
-      "description": "자율 구현 엔진 (fork). PRD 생성(drafti) -> 자율 구현(harnish) -> 점검(ralphi).",
+      "name": "honne",
+      "description": "LLM 과 나눈 흔적에서 당신 자신의 패턴을 끌어냅니다 — tatemae 아래의 honne.",
       "version": "0.0.1",
       "author": {
-        "name": "jhu900202",
-        "url": "https://github.com/jhu900202"
+        "name": "jazz1x",
+        "url": "https://github.com/jazz1x"
       },
       "source": {
         "source": "url",
-        "url": "https://github.com/jhu900202/harnish-jhu900202.git",
+        "url": "https://github.com/jazz1x/honne.git",
+        "ref": "main"
+      },
+      "category": "development"
+    },
+    {
+      "name": "galmuri",
+      "description": "흩어진 맥락을 갈무리한다. 요약·정리·퇴고·문서화·의사결정 덱을 위한 Claude Code 플러그인.",
+      "version": "0.0.1",
+      "author": {
+        "name": "jazz1x",
+        "url": "https://github.com/jazz1x"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/jazz1x/galmuri.git",
         "ref": "main"
       },
       "category": "development"
