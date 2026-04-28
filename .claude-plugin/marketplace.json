@@ -8,39 +8,19 @@
   },
   "plugins": [
     {
-      "name": "harnish",
-      "description": "자율 구현 엔진. PRD 생성(drafti) -> 자율 구현(harnish) -> 점검(ralphi).",
-      "version": "0.0.1",
+      "name": "arc42",
+      "description": "프로젝트 아키텍처 문서를 arc42 v8으로 빠르게 깔고, 점진적으로 채워 가는 스캐폴더.",
       "author": {
-        "name": "jazz1x",
-        "url": "https://github.com/jazz1x"
+        "name": "jhu900202",
+        "url": "https://github.com/jhu900202"
       },
-      "source": {
-        "source": "url",
-        "url": "https://github.com/jazz1x/harnish.git",
-        "ref": "main"
-      },
-      "category": "development"
-    },
-    {
-      "name": "honne",
-      "description": "LLM 과 나눈 흔적에서 당신 자신의 패턴을 끌어냅니다 — tatemae 아래의 honne.",
-      "version": "0.0.1",
-      "author": {
-        "name": "jazz1x",
-        "url": "https://github.com/jazz1x"
-      },
-      "source": {
-        "source": "url",
-        "url": "https://github.com/jazz1x/honne.git",
-        "ref": "main"
-      },
-      "category": "development"
+      "source": "./plugins/arc42",
+      "category": "documentation",
+      "homepage": "https://github.com/jhu900202/plugins/tree/main/plugins/arc42"
     },
     {
       "name": "galmuri",
       "description": "흩어진 맥락을 갈무리한다. 요약·정리·퇴고·문서화·의사결정 덱을 위한 Claude Code 플러그인.",
-      "version": "0.0.1",
       "author": {
         "name": "jazz1x",
         "url": "https://github.com/jazz1x"
@@ -50,21 +30,38 @@
         "url": "https://github.com/jazz1x/galmuri.git",
         "ref": "main"
       },
-      "category": "development"
+      "category": "productivity",
+      "homepage": "https://github.com/jazz1x/galmuri"
     },
     {
-      "name": "arc42",
-      "description": "프로젝트 아키텍처 문서를 arc42 v8으로 빠르게 깔고, 점진적으로 채워 가는 스캐폴더.",
-      "version": "0.0.1",
+      "name": "harnish",
+      "description": "자율 구현 엔진. PRD 생성(drafti) -> 자율 구현(harnish) -> 점검(ralphi).",
       "author": {
-        "name": "jhu900202",
-        "url": "https://github.com/jhu900202"
+        "name": "jazz1x",
+        "url": "https://github.com/jazz1x"
       },
       "source": {
-        "source": "directory",
-        "path": "./arc42"
+        "source": "url",
+        "url": "https://github.com/jazz1x/harnish.git",
+        "ref": "main"
       },
-      "category": "documentation"
+      "category": "development",
+      "homepage": "https://github.com/jazz1x/harnish"
+    },
+    {
+      "name": "honne",
+      "description": "LLM 과 나눈 흔적에서 당신 자신의 패턴을 끌어냅니다 — tatemae 아래의 honne.",
+      "author": {
+        "name": "jazz1x",
+        "url": "https://github.com/jazz1x"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/jazz1x/honne.git",
+        "ref": "main"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/jazz1x/honne"
     }
   ]
 }

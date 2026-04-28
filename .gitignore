@@ -1,0 +1,14 @@
+*.DS_Store
+.claude/
+node_modules/
+
+# Local-only IDE helpers under .github/scripts (not present in upstream)
+/.github/scripts/package.json
+/.github/scripts/package-lock.json
+/.github/scripts/tsconfig.json
+/.github/scripts/bun.lockb
+/.github/scripts/bun.lock
+
+# Stray npm artifacts at .github/ root (no package.json there)
+/.github/package.json
+/.github/package-lock.json
