@@ -88,3 +88,11 @@
 - `_catalog.md` 의 정확한 표준 포맷 (frontmatter 표준, 행당 컬럼, 위치 컨벤션).
 - 카탈로그 부재 시 자동 생성 옵션 (B안 의 일부) 을 보조 기능으로 둘지.
 - 비-md 파일 존재 시 update 가 보고하는 메시지 정형화.
+
+
+  1. leaf-spec.md — 이미 commands/arc42-update.md 에 inline 참조 있음. 추가 작업 불필요. 단 commands/arc42-update.md 의
+  표현을 더 자연스럽게 개선할 여지는 있음.
+  2. structure.md — 어디에도 inline 참조가 없는 상태. 내용을 먼저 읽어 가치 평가 후 결정 (commands 중 어디에 inline 으로
+  끼워 넣을지, 또는 dead 면 삭제).
+  3. templates/workflow-readme.md — 이전에 사용자 보류 지시. 보류 유지 시 inline 참조 없이 두는데, 그러면 자원이 고립됨.
+  별도 결정 필요.
