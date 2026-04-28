@@ -1,6 +1,8 @@
 ---
 description: arc42 12 챕터의 진척 상태(draft/review/confirm)를 표로 출력
 allowed-tools: Read
+user-invocable: true
+disable-model-invocation: false
 ---
 
 `arc42` 스킬의 **list** 모드를 실행합니다.

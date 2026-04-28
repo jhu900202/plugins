@@ -1,6 +1,8 @@
 ---
 description: arc42 표준 문서 골격을 .claude/docs/ 로 생성
 allowed-tools: Bash, Read, Glob
+user-invocable: true
+disable-model-invocation: false
 ---
 
 `arc42` 스킬의 **create** 모드를 실행합니다.

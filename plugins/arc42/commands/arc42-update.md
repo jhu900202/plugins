@@ -2,6 +2,8 @@
 description: 지정한 챕터의 본문을 .claude/docs/source/ 자료를 기반으로 작성·갱신
 argument-hint: <chapter-id>
 allowed-tools: Read, Write, Edit, Glob
+user-invocable: true
+disable-model-invocation: false
 ---
 
 `arc42` 스킬의 **update** 모드를 실행합니다. 인자: `$ARGUMENTS` (예: `1-1`, `5-3`).
