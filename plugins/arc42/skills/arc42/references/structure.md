@@ -103,9 +103,9 @@ README.md 내용 예시:
 - 챕터별 추출이 완료되면 본 폴더는 정리 또는 archive 결정.
 ```
 
-## 4. 진척 표 (architecture/README.md 내부)
+## 4. 인덱스 표 (`docs/INDEX.md` 내부)
 
-`architecture/README.md` 본문에 다음 형식의 표를 포함한다. 상태는 텍스트(`draft`/`review`/`confirm`)만 사용하며 이모지를 쓰지 않는다.
+`docs/INDEX.md` 본문에 다음 형식의 표를 포함한다. 상태는 텍스트(`draft`/`review`/`confirm`)만 사용하며 이모지를 쓰지 않는다.
 
 | # | leaf 경로 | 상태 |
 |---|----------|:----:|

@@ -26,6 +26,8 @@
 
 `create` 시 복사된 leaf 파일이 이미 표준 frontmatter(3 키 고정: `file`/`title`/`last_updated`) + H1 + 출처 인용 블록 + 절 골격을 갖고 있다. `update`는 본 구조를 유지하면서 본문 절을 채운다. 추출 단계의 원본 anchor는 frontmatter가 아닌 **본문 H1 직후 출처 인용 블록**에 배치.
 
+**상태 키 금지**: 진척 상태(`draft` / `review` / `confirm`)는 `docs/INDEX.md` 인덱스 표 1곳에서만 관리한다. frontmatter 에 `status` 키를 추가하지 않는다 — 이중 진실 회피.
+
 ### 1-2. 본문 (5~7개 절, 1 page 분량)
 
 | 위치 | 내용 |
@@ -61,7 +63,7 @@
 ## 3. 작성 후 처리 (`update` 완료 직후)
 
 1. 본문 파일 저장.
-2. `.claude/docs/architecture/README.md` 진척 표에서 해당 챕터 상태를 `draft`(또는 기존) → `review`로 자동 갱신.
+2. `.claude/docs/INDEX.md` 인덱스 표에서 해당 leaf 행의 상태를 `draft`(또는 기존) → `review`로 자동 갱신.
 3. 사용자에게 작성 완료 + 검토 요청 메시지 전달.
 
 → 이 시점에서 LLM은 더 이상 상태를 변경하지 않는다. 사용자가 검토 후 `confirm <chapter-id>`를 명시 호출해야 `confirm` 상태로 전이.
@@ -110,7 +112,7 @@
 
 1. **3분 통독 가능 여부**: leaf를 처음 펼친 사람이 3분 내 핵심 파악되는지.
 2. **anchor 정확성**: source 필드의 원본 anchor가 실제 존재하는지 grep으로 확인.
-3. **위임 매핑 일관성**: 위임 표의 경로가 architecture/README.md 챕터 인덱스와 어긋나지 않는지.
+3. **위임 매핑 일관성**: 위임 표의 경로가 `docs/INDEX.md` 인덱스와 어긋나지 않는지.
 4. **다른 leaf 침범 금지**: 다른 leaf 영역의 상세 정보가 본문에 새어 나오지 않았는지.
 5. **frontmatter 표준 일치**: 3 키(`file`/`title`/`last_updated`)만 채워졌는지.
 6. **README 진척 표 동기화**: 해당 챕터가 `review` 상태로 갱신되었는지.
