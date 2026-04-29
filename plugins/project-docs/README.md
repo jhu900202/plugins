@@ -46,7 +46,3 @@
 ## 참조
 
 - [arc42 공식 사이트](https://arc42.org)
-- 스킬 본문: [`skills/arc42/SKILL.md`](skills/arc42/SKILL.md)
-- 프론트매터 표준: [`skills/arc42/references/frontmatter.md`](skills/arc42/references/frontmatter.md)
-- 디렉토리 구조: [`skills/arc42/references/structure.md`](skills/arc42/references/structure.md)
-- leaf 작성 가이드: [`skills/arc42/references/leaf-spec.md`](skills/arc42/references/leaf-spec.md)
