@@ -1,7 +1,7 @@
 ---
 description: 지정한 챕터·leaf 의 진척 상태를 confirm 으로 확정 (사용자 명시 슬래시 호출 전용)
 argument-hint: <chapter-id>
-allowed-tools: Read, Edit
+allowed-tools: ["Read", "Bash(${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/validate-chapter-id.sh:*)", "Bash(${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/find-leaf.sh:*)", "Bash(${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/update-status.sh:*)"]
 disable-model-invocation: true
 ---
 
@@ -21,9 +21,33 @@ disable-model-invocation: true
 
 ## 수행
 
-1. `.claude/docs/INDEX.md` 를 Read.
-2. 인덱스 표에서 `<chapter-id>` 에 매칭되는 행(들)의 `상태` 열을 `confirm` 으로 Edit.
-3. 다른 행·다른 열·표 외 부분은 변경하지 않는다.
+### 0. 인자 검증·대상 leaf 조회 (스크립트 결정)
+
+상태 변경 전 chapter-id 형식·존재 여부를 결정적 스크립트로 확인. 모델은 결과에 따라 분기만 수행하고 형식 추론은 하지 않는다.
+
+```!
+"${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/validate-chapter-id.sh" "$ARGUMENTS" && \
+  "${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/find-leaf.sh" "$ARGUMENTS" .claude/docs/INDEX.md
+```
+
+종료 코드별 처리:
+- `0`: stdout 의 leaf 경로 목록을 대상으로 아래 단계 진행
+- validate `2` (형식 오류): "chapter-id 형식이 잘못되었습니다. 예: `1`, `1-1`, `8-7`" 안내 후 중단
+- find-leaf `2` (INDEX.md 없음): "INDEX.md 가 없습니다." 안내 후 중단
+- find-leaf `3` (매치 없음): "<chapter-id> 에 해당하는 leaf 가 INDEX.md 에 없습니다." 안내 후 중단
+
+### 1. 상태 갱신 (스크립트 결정·원자적 쓰기)
+
+상태 변경은 결정적 스크립트로 수행한다. 모델은 Edit 도구로 INDEX.md 를 직접 수정하지 않는다 — 부분 쓰기·범위 외 변경 위험을 차단한다.
+
+```!
+"${CLAUDE_PLUGIN_ROOT}/skills/arc42/scripts/update-status.sh" "$ARGUMENTS" confirm .claude/docs/INDEX.md
+```
+
+종료 코드별 처리:
+- `0`: stdout 의 "Updated N leaf row(s)..." 메시지를 사용자에게 전달
+- `1`/`2`/`3`: §0 에서 이미 검증되었으므로 도달 시 스크립트 내부 일관성 문제 — 사용자에게 보고 후 중단
+- `4` (검증 실패): "INDEX.md 갱신 검증에 실패했습니다. 파일은 변경되지 않았습니다." 안내 후 중단
 
 ## 상태 효과
 
